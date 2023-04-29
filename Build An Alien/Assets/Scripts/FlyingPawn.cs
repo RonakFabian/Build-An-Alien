@@ -17,12 +17,15 @@ public class FlyingPawn : MonoBehaviour
   private float rollInput;
   private float rollSpeed = 90f, rollAcceleration = 3.5f;
 
+  CameraShake cs;
+
   void Start()
   {
     screenCenter.x = Screen.width * .5f;
     screenCenter.y = Screen.height * .5f;
 
     Cursor.lockState = CursorLockMode.Confined;
+    cs = GetComponent<CameraShake>();
 
   }
 
@@ -46,5 +49,7 @@ public class FlyingPawn : MonoBehaviour
 
     transform.position += transform.forward * activeForwardSpeed * Time.deltaTime;
     transform.position += (transform.right * activeStrafeSpeed * Time.deltaTime) + (transform.up * activeHoverSpeed * Time.deltaTime);
+
+
   }
 }

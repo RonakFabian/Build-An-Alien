@@ -58,4 +58,8 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+Build-An-Alien/Library/*
+*.log
 Build An Alien/Library/*
+Build An Alien/Logs/*
+Build An Alien/Logs/*

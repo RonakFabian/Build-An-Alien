@@ -10,7 +10,7 @@ public class AstreroidFieldSpawner : MonoBehaviour
 
   void Start()
   {
-    for (int i = 0; i <= 100; i++)
+    for (int i = 0; i <= count; i++)
     {
       SpawnAsteroids();
 
@@ -25,7 +25,8 @@ public class AstreroidFieldSpawner : MonoBehaviour
 
   void SpawnAsteroids()
   {
-    Instantiate(asteroidPrefab, Random.insideUnitSphere * radius + transform.position, Random.rotation);
+    GameObject go = Instantiate(asteroidPrefab, Random.insideUnitSphere * radius + transform.position, Random.rotation);
+    go.transform.SetParent(transform);
 
   }
 }

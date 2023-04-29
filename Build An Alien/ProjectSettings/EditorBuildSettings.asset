@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Animated Planet Bagyo/Demo/DemoScene.unity
+    guid: 47cd513b8c4397e4ca272a1ff269d933
   m_configObjects: {}
