@@ -21,11 +21,14 @@ public class EnemyMovement : MonoBehaviour
 
   bool canMove = false;
   Rigidbody rb;
+  int randInt;
 
   void Start()
   {
     Invoke("SetWaypoints", 1);
     rb = GetComponent<Rigidbody>();
+
+
   }
 
   private void SetWaypoints()
@@ -33,6 +36,7 @@ public class EnemyMovement : MonoBehaviour
     waypoints = waypointParent.transform.GetComponentsInChildren<Transform>();
     transform.position = waypoints[waypointIndex].transform.position;
     canMove = true;
+    randInt = Random.Range(0, waypoints.Length - 1);
   }
 
   void Update()
@@ -43,18 +47,19 @@ public class EnemyMovement : MonoBehaviour
 
   void Move()
   {
-    transform.position = Vector3.MoveTowards(transform.position, waypoints[waypointIndex].transform.position, moveSpeed * Time.deltaTime);
+    transform.position = Vector3.MoveTowards(transform.position, waypoints[randInt].transform.position, moveSpeed * Time.deltaTime);
 
 
     if (transform.position == waypoints[waypointIndex].transform.position)
     {
-      waypointIndex += 1;
+
+      randInt = Random.Range(0, waypoints.Length - 1);
     }
 
-    if (waypointIndex == waypoints.Length)
-      waypointIndex = 0;
+    // if (waypointIndex == waypoints.Length)
+    //   waypointIndex = 0;
 
-    Quaternion desiredRotation = Quaternion.LookRotation((transform.position - waypoints[waypointIndex].transform.position).normalized);
+    Quaternion desiredRotation = Quaternion.LookRotation((transform.position - waypoints[randInt].transform.position).normalized);
     transform.rotation = Quaternion.Slerp(transform.rotation, desiredRotation, rotationSpeed * Time.deltaTime);
   }
 

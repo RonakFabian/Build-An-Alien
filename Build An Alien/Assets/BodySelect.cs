@@ -100,13 +100,49 @@ public class BodySelect : MonoBehaviour
     currentLegs = spawnedLegs[legsIndex];
     ResetAnimations();
   }
+  public void SelectTorso(int i)
+  {
+    torsoIndex += i;
+
+    if (torsoIndex < 0)
+    {
+      torsoIndex = spawnedTorsos.Count - 1;
+    }
+    else if (torsoIndex > spawnedTorsos.Count - 1)
+    {
+      torsoIndex = 0;
+    }
+
+    DisableAllMeshes(spawnedTorsos);
+    spawnedTorsos[torsoIndex].SetActive(true);
+    currentTorso = spawnedTorsos[torsoIndex];
+    ResetAnimations();
+  }
+  public void SelectHands(int i)
+  {
+    handsIndex += i;
+
+    if (handsIndex < 0)
+    {
+      handsIndex = spawnedHands.Count - 1;
+    }
+    else if (handsIndex > spawnedHands.Count - 1)
+    {
+      handsIndex = 0;
+    }
+
+    DisableAllMeshes(spawnedHands);
+    spawnedHands[handsIndex].SetActive(true);
+    currentHands = spawnedHands[handsIndex];
+    ResetAnimations();
+  }
 
   void ResetAnimations()
   {
-    currentHead.GetComponent<Animator>().Play("Alien_Flip", 0, 0);
-    currentHands.GetComponent<Animator>().Play("Alien_Flip", 0, 0);
-    currentLegs.GetComponent<Animator>().Play("Alien_Flip", 0, 0);
-    currentTorso.GetComponent<Animator>().Play("Alien_Flip", 0, 0);
+    currentHead.GetComponent<Animator>().Play("Alien_Idle", 0, 0);
+    currentHands.GetComponent<Animator>().Play("Alien_Idle", 0, 0);
+    currentLegs.GetComponent<Animator>().Play("Alien_Idle", 0, 0);
+    currentTorso.GetComponent<Animator>().Play("Alien_Idle", 0, 0);
 
     //Alien_Flip
   }

@@ -21,6 +21,7 @@ public class Pickup : MonoBehaviour
     if (other.CompareTag("Ship"))
     {
       Destroy(gameObject);
+      GameManager.Instance.AddScore();
     }
   }
 }

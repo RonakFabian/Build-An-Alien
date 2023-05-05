@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FlyingPawn : MonoBehaviour
 {
+
+  public GameObject alien;
   public float forwardSpeed = 25f;
   public float strafeSpeed = 7.5f;
   public float hoverSpeed = 5f;
@@ -16,6 +18,9 @@ public class FlyingPawn : MonoBehaviour
 
   private float rollInput;
   private float rollSpeed = 90f, rollAcceleration = 3.5f;
+
+  [SerializeField]
+  float rotationSpeed = 2f;
 
   CameraShake cs;
 
