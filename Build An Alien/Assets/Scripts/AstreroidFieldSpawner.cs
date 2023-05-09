@@ -7,11 +7,12 @@ public class AstreroidFieldSpawner : MonoBehaviour
   public List<GameObject> asteroidPrefabs;
   public float radius = 500;
   public float count = 100;
+  public float speed = 1;
 
   void Start()
   {
 
-
+    SpawnAsteroids();
 
   }
 
@@ -40,6 +41,11 @@ public class AstreroidFieldSpawner : MonoBehaviour
       go = Instantiate(asteroidPrefabs[0], Random.insideUnitSphere * radius + transform.position, Random.rotation);
       go.transform.SetParent(transform);
     }
+  }
+
+  void FixedUpdate()
+  {
+    transform.position -= Vector3.forward * speed * Time.fixedDeltaTime;
   }
 
 

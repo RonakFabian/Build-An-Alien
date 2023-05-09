@@ -7,9 +7,15 @@ public class Endless : MonoBehaviour
   public float timer;
   public List<GameObject> Prefabs;
 
-  public float rateOfSpawn = 1;
+  float rateOfSpawn;
   float currentTime = 0;
 
+  public float runnerTime = 100;
+
+  public TMPro.TMP_Text scoreText;
+  public TMPro.TMP_Text timerText;
+
+  float score = 0;
 
   public enum PlanetEnum
   {
@@ -39,11 +45,21 @@ public class Endless : MonoBehaviour
       currentTime = 0;
       SpawnRandomly();
     }
+    score += Time.fixedDeltaTime * 2f;
+    scoreText.text = "Score:" + Mathf.RoundToInt(score);
+
+    runnerTime -= Time.fixedDeltaTime * 0.175f;
+    timerText.text = "Time To Reach Earth:" + Mathf.Floor(runnerTime / 60).ToString("00") + ":" + (runnerTime % 60).ToString("00");
+
   }
 
   void SpawnRandomly()
   {
 
+    rateOfSpawn = Random.Range(1, 2.5f);
+    print("spawned");
+    GameObject go = Instantiate(Prefabs[Random.Range(0, Prefabs.Count)], transform.position, transform.rotation);
+    go.transform.SetParent(transform);
   }
 
   public void SetPlanet(int planet)

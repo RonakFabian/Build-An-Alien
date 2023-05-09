@@ -7,6 +7,8 @@ public class Planet : MonoBehaviour
   public GameObject planetMode;
   public GameObject spaceShipMode;
   public GameObject spaceShip;
+  public GameObject oldHUD;
+  public GameObject newHUD;
   void Start()
   {
 
@@ -23,6 +25,9 @@ public class Planet : MonoBehaviour
     spaceShipMode.SetActive(true);
     spaceShip.SetActive(true);
     planetMode.SetActive(false);
+    RenderSettings.fog = true;
+    oldHUD.SetActive(false);
+    newHUD.SetActive(true);
 
   }
 }
