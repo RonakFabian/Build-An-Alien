@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Endless : MonoBehaviour
 {
@@ -48,16 +49,18 @@ public class Endless : MonoBehaviour
     score += Time.fixedDeltaTime * 2f;
     scoreText.text = "Score:" + Mathf.RoundToInt(score);
 
-    runnerTime -= Time.fixedDeltaTime * 0.175f;
+    runnerTime -= Time.fixedDeltaTime * 0.25f;
     timerText.text = "Time To Reach Earth:" + Mathf.Floor(runnerTime / 60).ToString("00") + ":" + (runnerTime % 60).ToString("00");
-
+    if (runnerTime <= 0)
+    {
+      SceneManager.LoadScene("MainGameplay");
+    }
   }
 
   void SpawnRandomly()
   {
 
     rateOfSpawn = Random.Range(1, 2.5f);
-    print("spawned");
     GameObject go = Instantiate(Prefabs[Random.Range(0, Prefabs.Count)], transform.position, transform.rotation);
     go.transform.SetParent(transform);
   }

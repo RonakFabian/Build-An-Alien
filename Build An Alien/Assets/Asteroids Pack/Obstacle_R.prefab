@@ -368,6 +368,7 @@ GameObject:
   - component: {fileID: 7859235945953722698}
   - component: {fileID: 7859235945958637528}
   - component: {fileID: 7859235945946830298}
+  - component: {fileID: 2240885004461545782}
   m_Layer: 0
   m_Name: Asteroid 3
   m_TagString: Enemy
@@ -420,3 +421,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tumble: 0.25
+--- !u!135 &2240885004461545782
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7859235945953580360}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}

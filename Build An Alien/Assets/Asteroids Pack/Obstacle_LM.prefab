@@ -390,6 +390,7 @@ GameObject:
   - component: {fileID: 3941613111890002597}
   - component: {fileID: 5050641373048255097}
   - component: {fileID: 7895369582436886320}
+  - component: {fileID: 496444500562926852}
   m_Layer: 0
   m_Name: Asteroid 1
   m_TagString: Enemy
@@ -442,6 +443,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tumble: 0.25
+--- !u!135 &496444500562926852
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2333107732092001812}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2473076447199432311
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,6 +467,7 @@ GameObject:
   - component: {fileID: 4507627290497023656}
   - component: {fileID: 6197065999795031216}
   - component: {fileID: 3734789388120981701}
+  - component: {fileID: 3003607928387668720}
   m_Layer: 0
   m_Name: Asteroid 2
   m_TagString: Enemy
@@ -505,6 +520,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tumble: 0.25
+--- !u!135 &3003607928387668720
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2473076447199432311}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4514022037876738039
 GameObject:
   m_ObjectHideFlags: 0

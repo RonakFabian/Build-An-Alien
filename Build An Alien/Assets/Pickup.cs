@@ -20,8 +20,8 @@ public class Pickup : MonoBehaviour
   {
     if (other.CompareTag("Ship"))
     {
+      other.GetComponent<Shooting>().AmmoReset();
       Destroy(gameObject);
-      GameManager.Instance.AddScore();
     }
   }
 }
