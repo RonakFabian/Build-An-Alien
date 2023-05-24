@@ -11,8 +11,8 @@ public class Sizer : MonoBehaviour
   }
 
   // Update is called once per frame
-  void Update()
+  void FixedUpdate()
   {
-    transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(2, 2, 2), 0.001f * Time.deltaTime);
+    transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(2, 2, 2), 0.0025f * Time.fixedDeltaTime);
   }
 }

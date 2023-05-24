@@ -12,6 +12,9 @@ public class FlyingPawn : MonoBehaviour
 
   CameraShake cs;
   Vector3 pos;
+  Vector3 move;
+
+  bool moveLeft, moveRight;
 
   void Start()
   {
@@ -23,9 +26,47 @@ public class FlyingPawn : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-    var move = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
+    move = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
     transform.position += move * speed * Time.deltaTime;
-    float clampx = Mathf.Clamp(transform.position.x, -2.6f, 2.6f);
+    float clampx = Mathf.Clamp(transform.position.x, -2.8f, 2.8f);
+    transform.position = new Vector3(clampx, transform.position.y, transform.position.z);
+
+    if (moveLeft)
+      MoveLeft();
+
+
+    if (moveRight)
+      MoveRight();
+
+  }
+
+  public void MoveLeft()
+  {
+    print("left");
+    move = new Vector3(-1, 0, 0);
+    transform.position += move * speed * Time.deltaTime;
+    float clampx = Mathf.Clamp(transform.position.x, -2.8f, 2.8f);
+    transform.position = new Vector3(clampx, transform.position.y, transform.position.z);
+
+  }
+
+  public void SetMoveLeft(bool l)
+  {
+    moveLeft = l;
+  }
+
+  public void SetMoveRight(bool r)
+  {
+    moveRight = r;
+  }
+
+
+  public void MoveRight()
+  {
+    print("right");
+    move = new Vector3(1, 0, 0);
+    transform.position += move * speed * Time.deltaTime;
+    float clampx = Mathf.Clamp(transform.position.x, -2.8f, 2.8f);
     transform.position = new Vector3(clampx, transform.position.y, transform.position.z);
   }
 }

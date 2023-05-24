@@ -38,7 +38,7 @@ public class Endless : MonoBehaviour
   }
 
   // Update is called once per frame
-  void Update()
+  void FixedUpdate()
   {
     currentTime += Time.deltaTime;
     if (currentTime >= rateOfSpawn)
@@ -49,7 +49,7 @@ public class Endless : MonoBehaviour
     score += Time.fixedDeltaTime * 2f;
     scoreText.text = "Score:" + Mathf.RoundToInt(score);
 
-    runnerTime -= Time.fixedDeltaTime * 0.25f;
+    runnerTime -= Time.deltaTime;
     timerText.text = "Time To Reach Earth:" + Mathf.Floor(runnerTime / 60).ToString("00") + ":" + (runnerTime % 60).ToString("00");
     if (runnerTime <= 0)
     {

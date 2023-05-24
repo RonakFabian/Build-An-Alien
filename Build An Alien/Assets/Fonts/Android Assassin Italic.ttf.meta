@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 453fcefeaf090ec4090f0887cddeec47
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Android Assassin
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: e405c02f4ab1ae54e9feaa97c7eea2ac, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

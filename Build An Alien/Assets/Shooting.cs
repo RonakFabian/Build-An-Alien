@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class Shooting : MonoBehaviour
 {
@@ -29,7 +31,7 @@ public class Shooting : MonoBehaviour
   void Update()
   {
     prevFire += Time.deltaTime;
-    if (Input.GetMouseButton(0))
+    if (Input.GetKeyDown(KeyCode.Space))
     {
       if (prevFire >= rateOfFire)
       {
@@ -37,6 +39,16 @@ public class Shooting : MonoBehaviour
         if (currentAmmo > 0)
           Shoot();
       }
+    }
+  }
+
+  public void TryShoot()
+  {
+    if (prevFire >= rateOfFire)
+    {
+      prevFire = 0;
+      if (currentAmmo > 0)
+        Shoot();
     }
   }
 
@@ -64,19 +76,24 @@ public class Shooting : MonoBehaviour
 
   void TakeDamage()
   {
+    health -= 50;
     if (health > 0)
     {
-      health -= 50;
       healthTxt.text = "Health: " + health;
       GameObject go = Instantiate(hitPrefab, alienTarget.transform.position, Quaternion.identity);
       Destroy(go, 2);
     }
-    //stop game
+    else
+      SceneManager.LoadScene("MainGameplay");
   }
 
   public void AmmoReset()
   {
-    currentAmmo = maxAmmo;
+    currentAmmo += 5;
+    if (currentAmmo >= maxAmmo)
+    {
+      currentAmmo = 10;
+    }
     ammoTxt.text = "Ammo: " + currentAmmo + "/" + maxAmmo;
 
   }
